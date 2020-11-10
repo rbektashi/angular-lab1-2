@@ -1,0 +1,14 @@
+<ul>
+    <li *ngFor="let item of list" [class.completed]="item.completed">
+        <button (click)="completeTask(item)" *ngIf="!item.completed">Complete</button>
+        {{item.task}}
+        <span (click)="removeTask(item)">X</span>
+
+    </li>
+</ul>
+<form #form="ngForm" (submit)="addTask($event, form)">
+    <input type="text" name="add" placeholder="Add your to-do" ngModel>
+
+    <button>Add</button>
+
+</form>
